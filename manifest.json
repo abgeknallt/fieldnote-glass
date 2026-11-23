@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Fieldnote Glass",
+  "version": "1.0.0",
+  "description": "Personal Google Search backgrounds with live preview, blur controls and frosted glass cards.",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "windows"
+  ],
+  "host_permissions": [
+    "https://www.google.com/*",
+    "https://www.google.de/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Fieldnote Glass"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*",
+        "https://www.google.de/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
